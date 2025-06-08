@@ -1,5 +1,4 @@
 # PCOS-Prediction-Using-Machine-Learning-
-
 # 🧬 PCOS Prediction Using Machine Learning
 
 This project predicts the likelihood of Polycystic Ovary Syndrome (PCOS) in women using machine learning models. It leverages PyCaret for automated model comparison and tuning, and explores additional models like Random Forest and XGBoost with manual hyperparameter optimization.
@@ -50,6 +49,3 @@ You can download the dataset from sources like Kaggle or clinical open data repo
 | QDA                  | 0.6985   | 0.7016| 0.3027   |
 | XGBoost (tuned)      | 0.6697   | 0.6783| 0.4046   |
 | Random
-
-
-
