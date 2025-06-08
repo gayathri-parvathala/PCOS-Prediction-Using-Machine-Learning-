@@ -1,51 +1,92 @@
 # PCOS-Prediction-Using-Machine-Learning-
-# 🧬 PCOS Prediction Using Machine Learning
 
-This project predicts the likelihood of Polycystic Ovary Syndrome (PCOS) in women using machine learning models. It leverages PyCaret for automated model comparison and tuning, and explores additional models like Random Forest and XGBoost with manual hyperparameter optimization.
+# PCOS Prediction Using Machine Learning
 
-## 📊 Tech Stack
+This project aims to predict the likelihood of Polycystic Ovary Syndrome (PCOS) in women using various machine learning models. It combines traditional model development with PyCaret for automated comparison and evaluation. The entire workflow is implemented and executed in Google Colab.
 
-- Python
-- Pandas, NumPy, Seaborn, Matplotlib
-- Scikit-learn
-- PyCaret
-- XGBoost, LightGBM
-- TensorFlow/Keras (optional for deep learning exploration)
+## Objective
 
----
+To develop a predictive model that accurately identifies PCOS based on clinical and demographic data. This tool can support healthcare professionals in early diagnosis and screening.
 
-## 📁 Dataset
+## Dataset
 
-The dataset used contains medical features relevant to PCOS diagnosis, such as:
+The dataset includes the following types of features:
+- Clinical indicators (e.g., LH, FSH, AMH levels)
+- Demographic data (e.g., age, weight, BMI)
+- Binary target variable: `PCOS` (1 = has PCOS, 0 = no PCOS)
 
-- `FSH`, `LH`, `Age`, `BMI`, `AMH`, etc.
-- `PCOS` (Target: 0 = No, 1 = Yes)
+## Features
 
-You can download the dataset from sources like Kaggle or clinical open data repositories.
+- Data cleaning: handling missing values, removing duplicates
+- Feature scaling and encoding
+- Exploratory Data Analysis (EDA)
+- PyCaret-based model comparison (auto-selects best models)
+- Manual hyperparameter tuning for Random Forest and XGBoost using GridSearchCV
+- Comprehensive model evaluation using metrics like Accuracy, AUC, F1 Score, Precision, Recall
 
----
+## Tools and Libraries
 
-## ⚙️ Features of This Project
+This project is developed entirely in **Google Colab**, utilizing the following libraries:
+- pandas, numpy
+- seaborn, matplotlib
+- scikit-learn
+- xgboost
+- pycaret
 
-- 🧼 **Data Preprocessing**: Missing values handling, encoding, feature scaling
-- 🔍 **Exploratory Data Analysis**: Visualization using seaborn/matplotlib
-- 🔁 **AutoML with PyCaret**:
-  - Auto splits data
-  - Compares 15+ classifiers
-  - Selects best model automatically
-- 🛠 **Manual Model Tuning**:
-  - GridSearchCV for Random Forest & XGBoost
-- 📈 **Evaluation Metrics**:
-  - Accuracy, AUC, Recall, F1 Score, MCC
+No external environment setup or installation is needed beyond `pip install` commands executed directly within the Colab notebook.
 
----
+## Workflow
 
-## 📌 Results Summary
+1. **Load and Preprocess Data**
+   - Remove duplicates
+   - Handle missing values
+   - Label encode categorical features
+   - Standardize numerical columns
 
-| Model                 | Accuracy | AUC   | F1 Score |
-|----------------------|----------|-------|----------|
-| Logistic Regression  | 0.7118   | 0.6543| 0.3365   |
-| Naive Bayes          | 0.7037   | 0.6952| 0.2956   |
-| QDA                  | 0.6985   | 0.7016| 0.3027   |
-| XGBoost (tuned)      | 0.6697   | 0.6783| 0.4046   |
-| Random
+2. **Train-Test Split**
+   - Stratified 80/20 split to maintain class distribution
+
+3. **Model Comparison**
+   - Use PyCaret to automatically evaluate 15+ machine learning classifiers
+   - Select the top-performing models based on Accuracy and AUC
+
+4. **Manual Tuning**
+   - Apply GridSearchCV to optimize Random Forest and XGBoost parameters
+
+5. **Model Evaluation**
+   - Evaluate all models on the test set using classification metrics
+   - Generate comparison tables and visualizations
+
+## Sample Results
+
+| Model                         | Accuracy | AUC    | Recall | F1 Score |
+|------------------------------|----------|--------|--------|----------|
+| Logistic Regression          | 0.7118   | 0.6543 | 0.2359 | 0.3365   |
+| LDA                          | 0.7117   | 0.6559 | 0.2192 | 0.3163   |
+| Naive Bayes                  | 0.7037   | 0.6952 | 0.1955 | 0.2956   |
+| QDA                          | 0.6985   | 0.7016 | 0.2115 | 0.3027   |
+| Random Forest (Tuned)        | 0.6881   | 0.6663 | 0.3712 | 0.3984   |
+| XGBoost (Tuned)              | 0.6697   | 0.6783 | 0.3724 | 0.4046   |
+
+## Usage
+
+Open the project in Google Colab and execute the notebook step by step. All required libraries can be installed using `pip` cells at the top of the notebook.
+
+## File Structure
+
+```
+.
+├── pcos_prediction.ipynb   # Main Colab notebook
+└── README.md               # Project overview
+```
+
+## License
+
+This project is open-source and available under the MIT License.
+
+## Acknowledgements
+
+- Dataset contributors and hosting platforms
+- PyCaret community for simplifying ML workflows
+- Scikit-learn and open-source ML developers
+
