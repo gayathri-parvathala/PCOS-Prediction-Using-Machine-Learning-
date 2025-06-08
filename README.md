@@ -1,4 +1,3 @@
-# PCOS-Prediction-Using-Machine-Learning-
 
 # PCOS Prediction Using Machine Learning
 
